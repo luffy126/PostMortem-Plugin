@@ -19,8 +19,8 @@ Este plugin tiene dos principales funciones:
 
 # Como Instalarlo
 
-Para instalar el plugin basta con descargar el '.jar' y moverlo a la carpeta 'plugins' dentro del directorio del servidor, ten en cuenta que solo funciona para versiones 1.16 o superiores puesto que el plugin usa Java 16 y no funcionará en versiones anteriores de minecraft
+Para instalar el plugin basta con descargar el `.jar` y moverlo a la carpeta `plugins` dentro del directorio del servidor, ten en cuenta que solo funciona para versiones 1.16 o superiores puesto que el plugin usa Java 16 y no funcionará en versiones anteriores de minecraft
 
 ## Contribuciones
 
-Si encuentras algún bug o error dentro del plugin puedes abrir un fork o contactarme por Discord sin problema, el nombre de usuario es 'metralletass' y siempre tengo los DMs abiertos
+Si encuentras algún bug o error dentro del plugin puedes abrir un fork o contactarme por Discord sin problema, el nombre de usuario es `metralletass` y siempre tengo los DMs abiertos
