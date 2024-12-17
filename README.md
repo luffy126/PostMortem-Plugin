@@ -5,6 +5,10 @@ Documentación del Plugin de Minecraft "PostMortem" // Estado: En Desarrollo
 
 Este plugin simple es para dar una mecanica nueva a servidores hardcore estilo "Permadeath", siendo desarrollado especificamente para el de un amigo y está acá para tenerlo archivado y para que sea público
 
+# **Como Instalarlo**
+
+Para instalar el plugin basta con descargar el archivo `postmortem.jar` y moverlo a la carpeta `plugins` dentro del directorio del servidor, ten en cuenta que solo funciona para versiones 1.16 o superiores puesto que el plugin usa Java 16 y no funcionará en versiones anteriores de minecraft
+
 ## Funcionalidades Principales
 
 Este plugin tiene dos principales funciones:
@@ -15,11 +19,7 @@ Este plugin tiene dos principales funciones:
 ## Funcionalidades Secundarias
 
 - Muestra mediante el chat mensajes de muerte y mensajes de advertencia tanto como para el jugador comprometido como para todos los jugadores que estén en el servidor en ese momento
-- Pantalla de muerte cuando un jugador muere por segunda vez (en desarrollo)
-
-# Como Instalarlo
-
-Para instalar el plugin basta con descargar el `.jar` y moverlo a la carpeta `plugins` dentro del directorio del servidor, ten en cuenta que solo funciona para versiones 1.16 o superiores puesto que el plugin usa Java 16 y no funcionará en versiones anteriores de minecraft
+- Pantalla de muerte y sonido cuando un jugador muere por segunda vez
 
 ## Contribuciones
 
