@@ -23,9 +23,16 @@ Este plugin tiene dos principales funciones:
 
 ## Funcionalidades Secundarias
 
+También cuenta con otras funciones complementarias a las principales:
+
 - Muestra mediante el chat mensajes de muerte y mensajes de advertencia tanto como para el jugador comprometido como para todos los jugadores que estén en el servidor en ese momento
 - Pantalla de muerte y sonido personalizado cuando un jugador muere por segunda vez
 
-## Contribuciones y créditos
+## Contacto y créditos
 
 Si encuentras algún bug o error dentro del plugin puedes abrir un fork o contactarme por Discord sin problema, el nombre de usuario es `metralletass` y siempre tengo los DMs abiertos
+
+Doy especial gracias a:
+- **Quetzer**, pues es el creador del sonido custom para este plugin específico, puedes revisar lo que hace [aquí](https://linktr.ee/quetzer)
+- **Nicofast**, por su ayuda en testeos, bugs y sugerencias. Puedes ver mas de el [acá](https://www.youtube.com/@NicoFast/featured)
+
