@@ -1,17 +1,17 @@
 package vpm.postmortem;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityResurrectEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.GameRule;
+import org.bukkit.World;
 
 import java.io.File;
 import java.io.IOException;
@@ -65,6 +65,17 @@ public class postmortem extends JavaPlugin implements Listener {
     }
 
     @EventHandler
+    public void onTotemUsed(EntityResurrectEvent event) {
+        if (event.getEntity() instanceof Player) {
+            if (event.isCancelled() == false) {
+                Player player = (Player)event.getEntity();
+                String mensaje = ChatColor.GOLD + "" + ChatColor.BOLD + "El jugador " + player.getName() + " ha gastado un tótem.";
+                Bukkit.broadcastMessage(mensaje);
+            }
+        }
+    }
+
+    @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         UUID playerId = player.getUniqueId();
@@ -82,28 +93,43 @@ public class postmortem extends JavaPlugin implements Listener {
         UUID playerId = player.getUniqueId();
 
         if (secondLifeMap.getOrDefault(playerId, false)) { // Verificar si aún tiene su segunda vida
+            String mensajeDeMuerte = "El jugador " + ChatColor.RED + player.getName() + " ha muerto, y ahora está usando su " + ChatColor.DARK_RED + "" + ChatColor.BOLD + "ULTIMA " + ChatColor.RESET + ChatColor.RED + "vida";
+            for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                onlinePlayer.playSound(onlinePlayer.getLocation(), Sound.BLOCK_GLASS_BREAK, 1.0F, 1.0F);
+            }
+            Bukkit.broadcastMessage(mensajeDeMuerte);
             actualizarVida(playerId, false);
             secondLifeMap.put(playerId, false);
-            player.sendMessage(ChatColor.RED + "Has usado tu segunda vida. Ya no tendrás mas oportunidades.");
-            // Evitar baneo y revivir al jugador
 
         } else { // Baneo del jugador
             Bukkit.getScheduler().runTask(this, () -> {
 
-                // Mensaje en pantalla
-                player.setGameMode(GameMode.SPECTATOR);
-                player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 1.0F, 1.0F);
-                player.sendTitle(ChatColor.RED + "Dormiste", ChatColor.GRAY + "no era por ahí :(", 10, 70, 20);
+                World world = getServer().getWorld("world");
 
-                String banMessage = ChatColor.RED + player.getName() + " ha sido baneado del servidor";
+                // Mensaje en pantalla
+
+                player.setGameMode(GameMode.SPECTATOR);
+
+                for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+                    // reproducir sonido
+                    onlinePlayer.playSound(onlinePlayer.getLocation(), "custom.death_sound", 1.0F, 1.0F);
+
+                    String title = ChatColor.RED + "¡DORMISTE!";
+                    String subtitle = ChatColor.GRAY + "El jugador " + ChatColor.YELLOW + player.getName() + ChatColor.GRAY + " ha muerto.";
+                    onlinePlayer.sendTitle(title, subtitle, 10, 70, 20);
+                }
+
+                String banMessage = ChatColor.RED + "" + ChatColor.BOLD + "El oscuro destino de " + player.getName() + " se ha cumplido. \n" + "¡" + ChatColor.RESET + ChatColor.DARK_RED + "" + ChatColor.BOLD + "DURMIÓ " + ChatColor.RESET + ChatColor.RED + "" + ChatColor.BOLD + "bajo el peso del infierno y las llamas ETERNAS!";
+                Bukkit.broadcastMessage(banMessage);
+
                 // El ban
                 Bukkit.getScheduler().runTaskLater(this, () -> {
                     Bukkit.getBanList(org.bukkit.BanList.Type.NAME).addBan(player.getName(), "Moriste pa. Gracias por jugar a PostMortem!", null, "Servidor");
                     player.kickPlayer(ChatColor.RED + "Dormiste. Gracias por jugar a PostMortem!");
-
-                    // Mensaje al servidor
-                    Bukkit.broadcastMessage(banMessage);
                 }, 60L);
+
+                UUID playerID = player.getUniqueId();
+                Bukkit.getConsoleSender().sendMessage(playerID + "<- UUID del jugador " + player.getName() + " Anotar por algún lado");
             });
         }
     }
@@ -111,5 +137,3 @@ public class postmortem extends JavaPlugin implements Listener {
     public void onDisable(){
         Bukkit.getConsoleSender().sendMessage("Adios. Plugin by luffy126 :D");
     }
-
-}
