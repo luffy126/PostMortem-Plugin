@@ -12,7 +12,7 @@ Para instalar el plugin hay que hacer lo siguiente:
 - Descargar el plugin `ForcePack` que se puede encontrar en [este link](https://www.spigotmc.org/resources/forcepack.45439/) y moverlo a la misma carpeta `plugins` de tu servidor
 - Iniciar tu servidor y apagarlo. Seguramente ForcePack te de un error pero es normal, se arregla con el siguiente paso
 - Descargar el archivo `config.yml` y moverlo a la carpeta `plugins\ForcePack`. Seguro te va a pedir confirmación para sobreescribir el archivo existente, dale a aceptar para hacerlo
-- Listo! Abre tu servidor y comprueba que tanto el plugin ForcePack y PostMortem estén activados. Puedes hacerlo metiendo el comando `/plugins` dentro del mundo o en la consola del servidor
+- Listo! Abre tu servidor y comprueba que tanto el plugin ForcePack y PostMortem estén activados. Puedes hacerlo usando el comando `/plugins` dentro del mundo o en la consola del servidor
 
 ## Funcionalidades Principales
 
