@@ -1,5 +1,5 @@
 # PostMortem-Plugin
-Documentación del Plugin de Minecraft "PostMortem" (Versión 1.16.5+) // Estado: En Desarrollo
+Documentación del Plugin de Minecraft "PostMortem" (Versión 1.16.5+) // Estado: Terminado
 
 ## Introducción
 
@@ -19,7 +19,7 @@ Para instalar el plugin hay que hacer lo siguiente:
 Este plugin tiene dos principales funciones:
 
 - La capacidad de dar una **segunda vida extra** a cada jugador, de manera que puede revivir si este muere por primera vez, pero a la segunda se ejecuta el baneo del mismo
-- La capacidad de que los jugadores puedan **dar esa vida extra** a alguien que ya haya muerto, permitiendole sacrificar su segunda oportunidad a cambio de darle una chance mas a alguien que ya fue baneado (en desarrollo)
+- La capacidad de que los jugadores puedan **dar esa vida extra** a alguien que ya haya muerto, permitiendole sacrificar su segunda oportunidad a cambio de darle una chance mas a alguien que ya fue baneado (opcional, si quieres solo la doble vida puedes no configurar esta opción)
 
 ## Funcionalidades Secundarias
 
