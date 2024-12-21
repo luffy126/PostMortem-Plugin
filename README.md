@@ -1,5 +1,5 @@
 # PostMortem-Plugin
-Documentación del Plugin de Minecraft "PostMortem" (Versión 1.16.5+) // Estado: Terminado
+Documentación del Plugin de Minecraft "PostMortem" (Versión 1.16.5+) // Estado: Terminado, a espera de crear la documentación y forma de usarlo
 
 ## Introducción
 
